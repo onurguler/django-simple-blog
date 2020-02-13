@@ -1,0 +1,16 @@
+{
+  "name": "django-blog",
+  "version": "1.0.0",
+  "description": "Blog Web Site",
+  "main": "index.js",
+  "scripts": {
+    "build": "postcss css/tailwind.css -o src/static/css/tailwind.css"
+  },
+  "author": "Onur Güler",
+  "license": "ISC",
+  "dependencies": {
+    "autoprefixer": "^9.7.4",
+    "postcss-cli": "^7.1.0",
+    "tailwindcss": "^1.2.0"
+  }
+}

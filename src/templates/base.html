@@ -1,15 +1,19 @@
 <!DOCTYPE html>
-{% load static %}
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Django Blog</title>
+  <title>Django Blog | {% block title %} {% endblock title %}</title>
   <!-- Tailwind CSS -->
+  {% load static %}
   <link rel="stylesheet" href="{% static "css/tailwind.css" %}">
 </head>
-<body>
+<body class="bg-gray-100">
+  {% include "_navbar.html" %}
+
   {% block content %}
-    
   {% endblock content %}
+
+  {% block javascript %}
+  {% endblock javascript %}
 </body>
 </html>

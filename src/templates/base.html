@@ -11,8 +11,9 @@
   <!-- Tailwind CSS -->
   {% load static %}
   <link rel="stylesheet" href="{% static 'css/tailwind.css' %}" type="text/css" />
+  {% block stylesheet %} {% endblock stylesheet %}
 </head>
-<body class="bg-gray-900 text-white">
+<body class="bg-gray-900">
   {% include "_navbar.html" %}
 
   {% block content %}

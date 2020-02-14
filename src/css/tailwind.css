@@ -6,7 +6,7 @@
 }
 
 .markdown {
-  @apply text-gray-100;
+  @apply text-gray-900;
   @apply leading-normal;
   @apply break-words;
 }
@@ -45,7 +45,6 @@
   @apply mb-4;
   @apply mt-6;
   @apply pb-2;
-  @apply text-indigo-300;
 }
 
 .markdown h2 {
@@ -56,7 +55,6 @@
   @apply mb-4;
   @apply mt-6;
   @apply pb-2;
-  @apply text-indigo-300;
 }
 
 .markdown h3 {
@@ -65,7 +63,6 @@
   @apply font-semibold;
   @apply mb-4;
   @apply mt-6;
-  @apply text-indigo-300;
 }
 
 .markdown h4 {
@@ -74,7 +71,6 @@
   @apply font-semibold;
   @apply mb-4;
   @apply mt-6;
-  @apply text-indigo-300;
 }
 
 .markdown h5 {
@@ -83,7 +79,6 @@
   @apply font-semibold;
   @apply mb-4;
   @apply mt-6;
-  @apply text-indigo-300;
 }
 
 .markdown h6 {
@@ -93,7 +88,6 @@
   @apply text-gray-600;
   @apply mb-4;
   @apply mt-6;
-  @apply text-indigo-300;
 }
 
 .markdown blockquote {
@@ -113,13 +107,11 @@
   @apply rounded;
   @apply px-1;
   @apply py-05;
-  @apply text-gray-900 !important;
 }
 
 .markdown pre {
   @apply bg-gray-100;
   @apply rounded p-4;
-  @apply text-gray-900 !important;
 }
 
 .markdown pre code {
@@ -128,7 +120,6 @@
   @apply p-0;
   @apply overflow-visible;
   @apply rounded-none;
-  @apply text-gray-900 !important;
 }
 
 .markdown ul {
@@ -154,7 +145,6 @@
   @apply font-normal;
   @apply font-mono;
   @apply shadow;
-  @apply text-gray-900 !important;
 }
 
 .markdown table {

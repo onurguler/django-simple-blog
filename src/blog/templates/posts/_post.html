@@ -1,9 +1,9 @@
 <div class="mb-8">
-  <h1 class="text-2xl leading-tight font-bold text-indigo-300">
-    <a href="{% url 'post_detail' id=post.pk %}" class="hover:text-indigo-600">{{ post.title }}</a>
+  <h1 class="text-2xl leading-tight font-bold">
+    <a href="{% url 'post_detail' id=post.pk %}" class="hover:text-gray-700">{{ post.title }}</a>
   </h1>
-  <p class="mt-2 text-lg text-gray-400 font-semibold"> 
-    <a href="#" class="hover:text-gray-500">{{ post.subtitle }}</a>
+  <p class="mt-2 text-lg text-gray-600 font-semibold"> 
+    <a href="#" class="hover:text-gray-700">{{ post.subtitle }}</a>
   </p>
   <div class="mt-2 flex justify-between">
     <p class="text-gray-600">

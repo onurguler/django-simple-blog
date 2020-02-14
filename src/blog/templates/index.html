@@ -7,5 +7,20 @@
     {% for post in posts %}
       {% include "posts/_post.html" %}
     {% endfor %}
+    <div class="text-center">
+      {% if posts.has_previous %}
+        <a href="?page={{ posts.previous_page_number }}" class="text-blue-500 hover:text-blue-600">Prev</a>
+      {% endif %}
+      {% for page in page_range %}
+        {% if page == posts.number %}
+          <a href="#" class="px-4 py-1 text-lg text-gray-600 bg-gray-300 hover:bg-gray-300 hover:underline">{{ page }}</a>
+        {% else %}
+          <a href="?page={{ page }}" class="px-4 py-1 text-lg text-gray-600 hover:bg-gray-300 hover:underline">{{ page }}</a>
+        {% endif %}
+      {% endfor %}
+      {% if posts.has_next %}
+        <a href="?page={{ posts.next_page_number }}" class="text-blue-500 hover:text-blue-600">Next</a>
+      {% endif %}
+    </div>
   </div>
 {% endblock content %}

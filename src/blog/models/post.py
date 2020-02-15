@@ -7,7 +7,7 @@ class Post(models.Model):
     subtitle = models.CharField(max_length=256, blank=True)
     cover_image = models.URLField()
     text = models.TextField()
-    published_at = models.DateTimeField(blank=True)
+    published_at = models.DateTimeField(blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 

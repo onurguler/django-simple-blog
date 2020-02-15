@@ -64,3 +64,18 @@ def update(request, id):
             return redirect(redirect_to, id=post.pk)
 
     return render(request, 'posts/update.html', { 'form': form })
+
+
+@login_required
+def delete(request, id):
+    post = get_object_or_404(Post, pk=id)
+
+    if request.method == 'POST':
+        redirect_to = 'blog:index'
+        if post.published_at is None:
+            redirect_to = 'blog:drafts'
+
+        post.delete()
+        return redirect(redirect_to)
+
+    return render(request, 'posts/delete.html', { 'post': post })

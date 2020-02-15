@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <div class="mx-auto px-4 py-8 max-w-3xl">
+    <h1 class="text-2xl font-bold mb-4">Delete Post</h1>
+    <form method="POST">
+      {% csrf_token %}
+      <p class="mb-4">Are you sure confirm delete {{ post }}</p>
+      <input type="submit" value="Delete" class="px-4 py-1 bg-red-500 hover:bg-red-600 font-semibold focus:outline-none focus:shadow-outline rounded cursor-pointer">
+      {% if post.published_at is None %}
+        <a href="{% url 'blog:draft_detail' id=post.pk %}" class="px-4 py-2 bg-gray-300 hover:bg-gray-400 font-semibold focus:outline-none focus:shadow-outline rounded">Cancel</a>
+      {% else %}
+        <a href="{% url 'blog:post_detail' id=post.pk %}" class="px-4 py-2 bg-gray-300 hover:bg-gray-400 font-semibold focus:outline-none focus:shadow-outline rounded">Cancel</a>
+      {% endif %}
+    </form>
+  </div>
+{% endblock content %}

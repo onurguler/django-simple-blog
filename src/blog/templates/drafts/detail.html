@@ -19,8 +19,9 @@
           </p>
         </div>
         {% if user.is_authenticated %}
-          <div class="mt-2">
+          <div class="flex items-center justify-between mt-2">
             <a href="{% url 'blog:post_update' id=post.pk %}" class="px-4 py-2 bg-yellow-400 font-semibold hover:bg-yellow-500 focus:outline-none focus:shadow-outline rounded">Edit</a>
+            <a href="{% url 'blog:post_delete' id=post.pk %}" class="px-4 py-2 bg-red-500 font-semibold hover:bg-red-600 focus:outline-none focus:shadow-outline rounded">Delete</a>
           </div>
         {% endif %}
       </div>

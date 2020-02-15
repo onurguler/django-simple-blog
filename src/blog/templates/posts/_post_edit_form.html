@@ -1,0 +1,20 @@
+<form method="POST">
+  {% csrf_token %}
+  <div class="mb-4 sm:flex items-center justify-between">
+    <label class="mr-10" for="{{ form.title.name }}">{{ form.title.label }}:</label>
+    <input type="text" name="{{ form.title.name }}" class="border rounded px-4 py-1 focus:outline-none focus:shadow-outline w-full" placeholder="{{ form.title.label }}" value="{{ form.title.value }}">
+  </div>
+  <div class="mb-4 sm:flex items-center justify-between">
+    <label class="mr-4" for="{{ form.subtitle.name }}">{{ form.subtitle.label }}:</label>
+    <input type="text" name="{{ form.subtitle.name }}" class="border rounded px-4 py-1 focus:outline-none focus:shadow-outline w-full" placeholder="{{ form.subtitle.label }}" value="{{ form.subtitle.value }}">
+  </div>
+  <div class="mb-4 sm:flex items-center justify-between">
+    <label class="mr-6" for="{{ form.cover_image.name }}">Cover:</label>
+    <input type="text" name="{{ form.cover_image.name }}" class="sm:ml-1 border rounded px-4 py-1 focus:outline-none focus:shadow-outline w-full" placeholder="{{ form.cover_image.label }}" value="{{ form.cover_image.value }}">
+  </div>
+  <div class="mb-4 sm:flex items-start justify-between">
+    <label class="mr-10" for="{{ form.text.name }}">{{ form.text.label }}:</label>
+    <textarea name="{{ form.text.name }}" class="border rounded px-4 py-1 focus:outline-none focus:shadow-outline w-full resize-none" placeholder="{{ form.text.label }}" rows="15">{{ form.text.value }}</textarea> 
+  </div>
+  <input type="submit" value="Update" class="px-4 py-1 bg-blue-500 text-white font-semibold focus:outline-none focus:shadow-outline float-right rounded hover:bg-blue-600 cursor-pointer">
+</form>

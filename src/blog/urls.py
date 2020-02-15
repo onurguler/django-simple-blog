@@ -10,6 +10,7 @@ urlpatterns = [
     path('logout/', users.user_logout, name='logout'),
     path('posts/<int:id>', posts.detail, name='post_detail'),
     path('posts/new', posts.create, name='post_create'),
+    path('posts/<int:id>/edit', posts.update, name='post_update'),
     path('drafts/', drafts.index, name='drafts'),
     path('drafts/<int:id>', drafts.detail, name='draft_detail')
 ]

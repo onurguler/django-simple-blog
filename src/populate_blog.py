@@ -51,9 +51,11 @@ def populate(N=5):
                                           subtitle=subtitle, cover_image=cover_image,
                                           text=text, created_at=created_at,
                                           updated_at=created_at, published_at=published_at)
+        print('post', _, 'created')
         time.sleep(2)
         
 
 
 if __name__ == '__main__':
+    Post.objects.all().delete()
     populate(20)

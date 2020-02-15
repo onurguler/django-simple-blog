@@ -44,3 +44,23 @@ def create(request):
             return redirect('blog:post_detail', id=post.pk)
 
     return render(request, 'posts/create.html', { 'form': form })
+
+
+@login_required
+def update(request, id):
+    post = get_object_or_404(Post, pk=id)
+    form = PostForm(instance=post)
+
+    if request.method == 'POST':
+        form = PostForm(request.POST, instance=post)
+
+        if form.is_valid():
+            post = form.save()
+
+            redirect_to = 'blog:post_detail'
+            if post.published_at is None:
+                redirect_to = 'blog:draft_detail'
+
+            return redirect(redirect_to, id=post.pk)
+
+    return render(request, 'posts/update.html', { 'form': form })

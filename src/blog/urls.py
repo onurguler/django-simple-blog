@@ -12,6 +12,7 @@ urlpatterns = [
     path('posts/new', posts.create, name='post_create'),
     path('posts/<int:id>/edit', posts.update, name='post_update'),
     path('posts/<int:id>/remove', posts.delete, name='post_delete'),
+    path('posts/<int:id>/publish', posts.publish, name='post_publish'),
     path('drafts/', drafts.index, name='drafts'),
     path('drafts/<int:id>', drafts.detail, name='draft_detail')
 ]

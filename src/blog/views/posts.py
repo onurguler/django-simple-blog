@@ -41,7 +41,7 @@ def create(request):
             post.author = request.user
             post.save()
 
-            return redirect('blog:post_detail', id=post.pk)
+            return redirect('blog:draft_detail', id=post.pk)
 
     return render(request, 'posts/create.html', { 'form': form })
 
@@ -79,3 +79,11 @@ def delete(request, id):
         return redirect(redirect_to)
 
     return render(request, 'posts/delete.html', { 'post': post })
+
+
+@login_required
+def publish(request, id):
+    post = get_object_or_404(Post, pk=id)
+    post.publish()
+    post.save()
+    return redirect('blog:post_detail', id=post.pk)

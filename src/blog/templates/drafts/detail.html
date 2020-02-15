@@ -41,6 +41,9 @@
           <a href="{% url 'blog:post_delete' id=post.pk %}" class="px-4 py-1 bg-red-500 font-semibold hover:bg-red-600 focus:outline-none focus:shadow-outline rounded">Delete</a>
         </div>
       {% endif %}
+      <div class="mt-8">
+        <a href="{% url 'blog:comment_create' id=post.pk %}" class="px-4 py-2 bg-blue-500 font-semibold hover:bg-blue-600 focus:outline-none focus:shadow-outline rounded text-white">Add Comment</a>
+      </div>
     </div>
   </div>
 {% endblock content %}

@@ -1,0 +1,13 @@
+<form method="POST">
+  {% csrf_token %}
+  <div class="mb-4 sm:flex items-center justify-between">
+    <label class="mr-6" for="{{ form.author.name }}">{{ form.author.label }}:</label>
+    <input type="text" name="{{ form.author.name }}" class="border rounded px-4 py-1 focus:outline-none focus:shadow-outline w-full" placeholder="{{ form.author.label }}">
+  </div>
+  <div class="mb-4 sm:flex items-start justify-between">
+    <label class="mr-10" for="{{ form.text.name }}">{{ form.text.label }}:</label>
+    <textarea name="{{ form.text.name }}" class="border rounded px-4 py-1 focus:outline-none focus:shadow-outline w-full resize-none" placeholder="{{ form.text.label }}" rows="15"></textarea> 
+  </div>
+  <input type="submit" value="Submit" class="px-4 py-1 bg-blue-500 text-white font-semibold focus:outline-none focus:shadow-outline float-right rounded hover:bg-blue-600 cursor-pointer">
+</form>
+

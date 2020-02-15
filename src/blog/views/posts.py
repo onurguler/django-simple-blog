@@ -21,11 +21,13 @@ def index(request):
 def detail(request, id):
     if request.user.is_authenticated:
         post = get_object_or_404(Post, pk=id)
+        comments = post.comments.all().order_by('-created_at')
     else:
         query_set = Post.objects.filter(published_at__isnull=False)
         post = get_object_or_404(query_set, pk=id)
+        comments = post.approved_comments().order_by('-created_at')
     
-    return render(request, 'posts/detail.html', context={ 'post': post })
+    return render(request, 'posts/detail.html', context={ 'post': post, 'comments': comments })
 
 
 @login_required

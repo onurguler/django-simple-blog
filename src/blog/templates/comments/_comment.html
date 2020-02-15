@@ -1,0 +1,10 @@
+<div class="mb-4">
+  <p class="text-gray-600">
+    Author: <span class="text-blue-500 font-bold">{{ comment.author }}</span>
+  </p>
+  {% load markdown_extras %}
+  <div class="mt-2 markdown">{{ comment.text | markdown | safe }}</div>
+  <div class="mt-2 text-right">
+    <p class="font-bold text-gray-600">{{ comment.created_at }}</p>
+  </div>
+</div>

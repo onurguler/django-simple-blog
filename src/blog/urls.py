@@ -1,6 +1,7 @@
 from django.urls import path
 from blog.views import index, posts, users
 
+app_name = 'blog'
 
 urlpatterns = [
     path('', posts.index, name='index'),

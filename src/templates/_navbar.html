@@ -14,15 +14,31 @@
       </button>
     </div>
   </div>
-  <nav id="navbar-nav" class="hidden px-2 pt-2 pb-4 sm:flex sm:p-0">
-    <a href="#" class="block px-2 py-1 font-semibold rounded hover:bg-gray-300">Home</a>
-    <a href="#" class="mt-1 block px-2 py-1 font-semibold rounded hover:bg-gray-300 sm:mt-0 sm:ml-2">About</a>
-    <a href="#" class="mt-1 block px-2 py-1 font-semibold rounded hover:bg-gray-300 sm:mt-0 sm:ml-2">Github</a>
+  <nav id="navbar-nav" class="hidden sm:block">
+    <div class="px-2 pt-2 pb-4 sm:flex sm:p-0">
+      <a href="#" class="block px-2 py-1 font-semibold rounded hover:bg-gray-300">Home</a>
+      <a href="#" class="mt-1 block px-2 py-1 font-semibold rounded hover:bg-gray-300 sm:mt-0 sm:ml-2">About</a>
+      <a href="#" class="mt-1 block px-2 py-1 font-semibold rounded hover:bg-gray-300 sm:mt-0 sm:ml-2">Github</a>
+      {% if user.is_authenticated %}
+        <div class="hidden sm:flex">
+          <span class="mt-1 px-2 py-1 font-semibold rounded sm:mt-0 sm:ml-2">Welcome:</span>
+          {% include "_account_dropdown.html" %}
+        </div>
+      {% else %}
+        <a href="{% url 'blog:login' %}" class="mt-1 block px-2 py-1 font-semibold rounded hover:bg-gray-300 sm:mt-0 sm:ml-2">Login</a>
+      {% endif %}
+    </div>
     {% if user.is_authenticated %}
-      <a href="{% url 'blog:logout' %}" class="mt-1 block px-2 py-1 font-semibold rounded hover:bg-gray-300 sm:mt-0 sm:ml-2">Logout</a>
-      <span class="mt-1 block px-2 py-1 font-semibold rounded sm:mt-0 sm:ml-2">Welcome: {{ user.username }}</span>
-    {% else %}
-      <a href="{% url 'blog:login' %}" class="mt-1 block px-2 py-1 font-semibold rounded hover:bg-gray-300 sm:mt-0 sm:ml-2">Login</a>
+      <div class="px-4 py-5 border-t border-gray-800 sm:hidden">
+        <div class="flex items-center">
+          <span class="text-gray-700">Welcome:</span>
+          <span class="ml-3 font-semibold">{{ user.username }}</span>
+        </div>
+        <div class="mt-4">
+          <a href="{% url 'blog:post_create' %}" class="block text-gray-700 hover:text-gray-900">New Post</a>
+          <a href="{% url 'blog:logout' %}" class="mt-2 block text-gray-700 hover:text-gray-900">Sign out</a>
+        </div>
+      </div>
     {% endif %}
   </nav>
 </header>

@@ -87,5 +87,4 @@ def delete(request, id):
 def publish(request, id):
     post = get_object_or_404(Post, pk=id)
     post.publish()
-    post.save()
     return redirect('blog:post_detail', id=post.pk)

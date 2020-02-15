@@ -9,5 +9,9 @@ class Comment(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
+    def approve(self):
+        self.approved = True
+        self.save()
+    
     def __str__(self):
         return self.text

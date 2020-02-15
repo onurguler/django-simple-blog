@@ -14,6 +14,8 @@ urlpatterns = [
     path('posts/<int:id>/remove', posts.delete, name='post_delete'),
     path('posts/<int:id>/publish', posts.publish, name='post_publish'),
     path('posts/<int:id>/comment', comments.create, name='comment_create'),
+    path('comments/<int:id>/approve', comments.approve, name='comment_approve'),
+    path('comments/<int:id>/remove', comments.delete, name='comment_delete'),
     path('drafts/', drafts.index, name='drafts'),
     path('drafts/<int:id>', drafts.detail, name='draft_detail')
 ]

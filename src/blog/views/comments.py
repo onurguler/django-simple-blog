@@ -21,11 +21,12 @@ def create(request, id):
             comment.post = post
             comment.save()
 
-            redirect_to = 'blog:post_detail'
+            redirect_to = '/posts/'
             if post.published_at is None:
-                redirect_to = 'blog:draft_detail'
+                redirect_to = '/drafts/'
 
-            return redirect(redirect_to, id=post.pk)
+            # 'post_detail#comments'
+            return redirect(redirect_to+str(post.pk)+'#comments', id=post.pk)
 
     return render(request, 'comments/create.html', { 'post': post, 'form': form })
 

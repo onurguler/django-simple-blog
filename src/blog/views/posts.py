@@ -1,4 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect, reverse, Http404
+from django.http import JsonResponse
+from django.template.loader import render_to_string
 from django.core.paginator import Paginator
 from blog.models import Post
 from django.contrib.auth.decorators import login_required
@@ -14,6 +16,15 @@ def index(request):
     
     paginator = Paginator(posts, per_page)
     page_obj = paginator.get_page(page_number)
+
+    if request.is_ajax():
+        html = render_to_string('posts/_post.html', context={ 'posts': page_obj })
+
+        if int(page_number) > paginator.num_pages:
+            html = '' 
+
+        return JsonResponse({ 'html': html })
+        
     return render(request, 'index.html', context={ 'posts': page_obj, 
                                                    'page_range': paginator.page_range})
 

@@ -1,4 +1,5 @@
 from django.shortcuts import render, get_object_or_404, redirect
+from django.urls import reverse
 from django.contrib.auth.decorators import login_required
 from blog.models import Post, Comment
 from blog.forms import CommentForm
@@ -21,12 +22,14 @@ def create(request, id):
             comment.post = post
             comment.save()
 
-            redirect_to = '/posts/'
+            redirect_to = 'blog:post_detail'
             if post.published_at is None:
-                redirect_to = '/drafts/'
+                redirect_to = 'blog:draft_detail'
 
             # 'post_detail#comments'
-            return redirect(redirect_to+str(post.pk)+'#comments', id=post.pk)
+            # redirect(r)
+            return redirect(reverse(redirect_to, kwargs={ 'id': post.pk }) + '#comments')
+            # return redirect(redirect_to+str(post.pk)+'#comments', id=post.pk)
 
     return render(request, 'comments/create.html', { 'post': post, 'form': form })
 

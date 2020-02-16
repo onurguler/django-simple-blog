@@ -23,5 +23,6 @@ def index(request):
 def detail(request, id):
     query_set = Post.objects.filter(published_at__isnull=True)
     post = get_object_or_404(query_set, pk=id)
+    comments = post.comments.all().order_by('-created_at')
 
-    return render(request, 'drafts/detail.html', context={ 'post': post })
+    return render(request, 'drafts/detail.html', context={ 'post': post, 'comments': comments })
